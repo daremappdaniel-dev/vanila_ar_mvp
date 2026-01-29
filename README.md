@@ -1,6 +1,6 @@
 # Vanila AR MVP
 
-Prototipo de navegación con Realidad Aumentada usando tecnologías web vanilla.
+Prototipo de navegación con Realidad Aumentada usando Model Viewer.
 
 ## Tecnologías
 
