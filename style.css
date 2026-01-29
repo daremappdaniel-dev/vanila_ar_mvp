@@ -1,4 +1,25 @@
 :root {
+  /* --- MD3 DESIGN TOKENS (TEAL / PASTEL THEME) --- */
+  
+  /* Primary: Color del Logo (Teal) */
+  --md-sys-color-primary: #00A99D; 
+  --md-sys-color-on-primary: #FFFFFF;
+  
+  /* Surface: Menta Pastel muy suave */
+  --md-sys-color-surface-container: #E0F7FA;
+  
+  /* Textos: Contraste oscuro accesible */
+  --md-sys-color-on-surface: #004D40;
+  --md-sys-color-on-surface-variant: #00695C;
+  
+  /* Secondary: Pastel saturado para badges */
+  --md-sys-color-secondary-container: #B2DFDB;
+  --md-sys-color-on-secondary-container: #004D40;
+
+  --md-sys-elevation-2:
+    0px 4px 8px 3px rgba(0, 169, 157, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+  --md-sys-shape-corner-extra-large: 28px;
+
   --font-family: "Roboto", sans-serif;
 }
 
@@ -53,4 +74,133 @@ html {
   justify-content: flex-end;
   padding: 0 16px 24px 16px;
   box-sizing: border-box;
+}
+
+/* --- MD3 CARD IMPLEMENTATION --- */
+.md3-card {
+  pointer-events: auto;
+  background: var(--md-sys-color-surface-container);
+  border-radius: var(--md-sys-shape-corner-extra-large);
+  box-shadow: var(--md-sys-elevation-2);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  animation: slideUpMd3 0.5s cubic-bezier(0.05, 0.7, 0.1, 1);
+}
+
+/* Drag Handle (Indicador de arrastre) */
+.drag-handle {
+  width: 32px;
+  height: 4px;
+  background: var(--md-sys-color-on-surface-variant);
+  opacity: 0.4;
+  border-radius: 2px;
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.card-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+/* Icono Circular de Maniobra */
+.maneuver-icon-container {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  min-width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.maneuver-icon {
+  font-size: 28px;
+}
+
+.text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* MD3 Typography */
+.headline-small {
+  margin: 0;
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+  color: var(--md-sys-color-on-surface);
+}
+
+.body-medium {
+  margin: 0;
+  font-size: 16px;
+  line-height: 20px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+/* Badge de Tiempo/Distancia */
+.meta-badge {
+  background: var(--md-sys-color-secondary-container);
+  color: var(--md-sys-color-on-secondary-container);
+  padding: 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  height: fit-content;
+}
+.small-icon {
+  font-size: 18px;
+}
+
+/* Botón flotante MD3 */
+.md3-btn-primary {
+  background: var(--md-sys-color-primary);
+  color: var(--md-sys-color-on-primary);
+  border: none;
+  height: 40px;
+  border-radius: 20px;
+  padding: 0 24px;
+  font-family: var(--font-family);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-end;
+  transition: box-shadow 0.2s;
+}
+
+.md3-btn-primary:active {
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+@keyframes slideUpMd3 {
+  from {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
